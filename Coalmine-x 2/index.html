@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Coalmine-x | UGV Mine Safety Simulation</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<main>
+  <h1>COALMINE-X</h1>
+  <div class="steps" id="steps"></div>
+
+  <div class="lbl">Plan view (top)</div>
+  <canvas id="c" width="900" height="440"></canvas>
+
+  <div class="lg">
+    <span><i style="background:#22c55e"></i>Zone A – work completed</span>
+    <span><i style="background:#f59e0b"></i>Zones B, C – active work</span>
+    <span><i style="background:#9ca3af"></i>Zone D – closed</span>
+    <span><i style="background:#ef4444"></i>Crack / risky zone</span>
+    <span><i style="background:#f5d76e"></i>PU foam</span>
+    <span><i style="background:#22d3ee55"></i>Scanned by rover</span>
+    <span><i style="background:#22d3ee"></i>Sensor node</span>
+  </div>
+
+  <div class="lbl">Cross-section (side view)</div>
+  <canvas id="k" width="900" height="230"></canvas>
+
+  <div class="bar">
+    <button class="p" id="go">▶ Start rover</button>
+    <button id="cut">📡 Connection lost</button>
+    <button id="bl">💥 Blast in Zone B</button>
+    <button class="p" id="bh" title="Start the borehole and PU-foaming sequence">🛠 Borehole + PU foaming</button>
+    <button id="rs">↺ Reset</button>
+  </div>
+
+  <div class="g">
+    <div class="c"><h2>Rover</h2>
+      <div class="r"><span>Mode</span><b id="m">Idle</b></div>
+      <div class="r"><span>Comm link</span><b id="cm">OK</b></div>
+      <div class="r"><span>Distance from surface</span><b id="ps">0 m</b></div>
+      <div class="r"><span>Data collected onboard</span><b id="dc">0 m / 0 cracks</b></div>
+      <div class="r"><span>LiDAR + Night vision</span><b id="ls">Standby</b></div>
+      <div class="r"><span>PU foam tank</span><b id="tk">10.0 / 10 L</b></div>
+      <div class="tb"><i id="tf"></i></div>
+    </div>
+
+    <div class="c"><h2>Borehole unit (surface)</h2>
+      <div class="r"><span>Status</span><b id="bs">Waiting for node data</b></div>
+      <div class="r"><span>Drill depth</span><b id="bd">0 / 60 m</b></div>
+      <div class="r"><span>PU foam injected</span><b id="bi">0 / 400 L</b></div>
+      <div class="r"><span>Void filled</span><b id="bf">0%</b></div>
+      <div class="r"><span>Risk reduction</span><b id="br">0%</b></div>
+    </div>
+
+    <div class="c"><h2>Zone C watch (blast impact)</h2>
+      <div class="r"><span>Blasts in Zone B</span><b id="zb">0</b></div>
+      <div class="r"><span>Zone C stability</span><b id="zs">Stable</b></div>
+      <div class="r"><span>Damage</span><b id="zd">0%</b></div>
+      <div class="r"><span>New cracks in Zone C</span><b id="zc">0</b></div>
+      <div class="r"><span>Main road link</span><b id="zr">Open</b></div>
+    </div>
+
+    <div class="c"><h2>Substation monitor (&lt; 1 km)</h2>
+      <div class="r"><span>Subsidence ETA</span><b id="eta">—</b></div>
+      <div class="r"><span>Status</span><b id="st">Node not deployed</b></div>
+      <div class="r"><span>Strain / Tilt</span><b id="sr">—</b></div>
+      <div class="r"><span>Roof convergence / CH₄</span><b id="cv">—</b></div>
+      <div class="r"><span>Vibration (mm/s)</span><b id="vb">—</b></div>
+      <div class="r"><span>Observed / Confidence</span><b id="cf">—</b></div>
+      <canvas id="sp" width="300" height="50" style="margin-top:6px;border-radius:6px"></canvas>
+    </div>
+
+    <div class="c"><h2>Event log</h2><div id="log"></div></div>
+  </div>
+</main>
+<script src="js/app.js"></script>
+</body>
+</html>

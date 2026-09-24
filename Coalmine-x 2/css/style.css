@@ -1,0 +1,54 @@
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);--bg:#f3f1ec;--fg:#1d1b18;--card:#fff;--mut:#6b665e;--bd:#d8d3c8;--ac:#c2410c;--ok:#16a34a}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#14120f;--fg:#ece8df;--card:#1e1b17;--mut:#9a9385;--bd:#3a352d;--ac:#fb923c;--ok:#22c55e}}
+:root[data-theme="dark"]{--bg:#14120f;--fg:#ece8df;--card:#1e1b17;--mut:#9a9385;--bd:#3a352d;--ac:#fb923c;--ok:#22c55e}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--fg);font:14px/1.45 system-ui,-apple-system,"Segoe UI",sans-serif}
+main{max-width:980px;margin:0 auto;padding:14px}
+h1{font-size:19px;margin:0 0 2px}p.s{margin:0 0 10px;color:var(--mut);font-size:13px}
+canvas{width:100%;height:auto;display:block;border-radius:10px;border:1px solid var(--bd);background:#14100c}
+.steps{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 10px}
+.st{font-size:12px;padding:4px 10px;border-radius:99px;border:1px solid var(--bd);color:var(--mut);background:var(--card)}
+.st.on{border-color:var(--ac);color:var(--ac);font-weight:600}.st.ok{border-color:var(--ok);color:var(--ok)}
+.lg{display:flex;flex-wrap:wrap;gap:4px 14px;margin:8px 0;font-size:12px;color:var(--mut)}
+.lg i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:5px;vertical-align:-1px}
+.lbl{font-size:12px;color:var(--mut);margin:12px 0 4px;text-transform:uppercase;letter-spacing:.05em}
+.bar{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px;margin:12px 0}
+button,
+button.p,
+#go,#cut,#bl,#bh,#rs{
+  background:var(--ac);
+  color:#fff;
+  border:1px solid var(--ac);
+  border-radius:8px;
+  padding:10px 12px;
+  font:inherit;
+  cursor:pointer;
+  font-weight:600;
+}
+button:hover:not(:disabled){filter:brightness(1.06)}
+button:active:not(:disabled){transform:translateY(1px)}
+button:disabled{opacity:.55;cursor:pointer}
+.g{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:10px}
+.c{background:var(--card);border:1px solid var(--bd);border-radius:10px;padding:10px 12px}
+.c h2{font-size:12px;margin:0 0 6px;color:var(--mut);text-transform:uppercase;letter-spacing:.05em}
+.r{display:flex;justify-content:space-between;gap:8px;padding:3px 0;border-bottom:1px dashed var(--bd)}.r:last-child{border:0}
+.r b{font-variant-numeric:tabular-nums;text-align:right}
+.tb{height:10px;background:var(--bd);border-radius:5px;overflow:hidden;margin:4px 0 6px}.tb i{display:block;height:100%;background:#3b82f6;width:100%}
+#log{font:12px/1.55 ui-monospace,monospace;color:var(--mut);min-height:130px}
+#eta{font-size:20px}
+/* Active Borehole + PU Foaming control */
+#bh{opacity:1;cursor:pointer;border-color:var(--ac)}
+#bh:not(:disabled){box-shadow:0 0 0 2px color-mix(in srgb,var(--ac) 18%,transparent)}
+#bh:disabled{opacity:.75;cursor:pointer}
+
+
+/* Unified action-button appearance */
+#go, #cut, #bl, #bh {
+  background: var(--ac);
+  color: #fff;
+  border-color: var(--ac);
+  font-weight: 600;
+}
+#go:hover, #cut:hover, #bl:hover, #bh:hover {
+  filter: brightness(1.05);
+}
