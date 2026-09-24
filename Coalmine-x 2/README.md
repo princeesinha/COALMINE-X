@@ -15,4 +15,7 @@ The button is now visibly active and clickable. It gives a clear event-log messa
 4. Continued sensor monitoring
 
 Open `index.html` in a modern browser to run the simulation.
-# COALMINE-X
+
+# 🚀 Live Demo
+https://coalmine-x-2.vercel.app
+
